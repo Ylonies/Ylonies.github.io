@@ -1,0 +1,95 @@
+
+.application-form {
+  min-width: 450px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.application-form h1{
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem; /* Увеличиваем размер для лучшей читаемости */
+  color: var(--info-light);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  background-color: transparent;
+  border: none; /* Убираем стандартную рамку */
+  border-bottom: 2px solid var(--info-light);
+}
+
+.form-input::placeholder {
+  color: var(--info-medium);
+}
+
+.radio-group {
+  margin-top: 25px;
+}
+
+.radio-label {
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.radio-options {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-custom {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--info-light); /* Белая граница */
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.3s ease; /* Плавное изменение */
+}
+
+.radio-option input:checked + .radio-custom {
+  background: var(--my-green); /* Полностью зеленый фон */
+  border-color: var(--my-green); /* Зеленая граница */
+}
+
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: transparent; /* Прозрачный фон */
+  color: var(--info-light); /* Белый текст */
+    border: 2px solid #444; /* Белая рамка */
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Анимация всех свойств */
+}
+
+.submit-btn:hover {
+  color: var(--my-green); /* Зеленый текст */
+}
+
+.submit-btn:hover {
+  background: transparent;
+}

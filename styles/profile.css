@@ -1,0 +1,116 @@
+
+.profile-section {
+    width: 100%;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.profile-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center
+}
+
+/* Фиксированный размер аватарки */
+.avatar-placeholder {
+   width: 20%;
+    min-width: 150px;
+  aspect-ratio: 1/1;
+    background: #333;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-titles{
+
+}
+.profile-titles h1 {
+    font-size: clamp(24px, 2.5vw, 36px)
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.profile-section h2 {
+    font-size: clamp(16px, 1.8vw, 24px);
+    font-weight: 400;
+    color: var(--info-medium);
+}
+
+.profile-stats {
+    display: flex;
+    gap: 15px; /* Уменьшенный отступ */
+    flex-wrap: wrap;
+    justify-content: space-between; /* Равномерное распределение */
+}
+
+.stat-item {
+    flex: 1; /* Гибкие элементы */
+    min-width: 100px; /* Минимальная ширина */
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: clamp(28px, 2.5vw, 36px);
+    font-weight: 700;
+    color: var(--my-green);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+
+/* my github */
+
+.github-section {
+  text-align: center;
+}
+
+.github-section {
+  text-align: center;
+  padding: 0 16px; /* Добавляем отступы по бокам для маленьких экранов */
+}
+
+.github-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: clamp(14px, 2vw, 30px);
+  font-weight: 400;
+  transition: all 0.3s ease;
+  border: 2px solid #444;
+  min-width: max-content;
+  width: auto;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.github-icon {
+  width: 1.2em; /* Размер относительно шрифта */
+  height: 1.2em;
+  min-width: 24px; /* Абсолютный минимум */
+  min-height: 24px;
+  flex-shrink: 0; /* Запрещаем сжатие */
+  margin-right: 0.2rem; /* Дополнительная страховка */
+}
+
+.github-button:hover {
+  transform: translateY(-3px);
+  color: var(--my-green);
+}
