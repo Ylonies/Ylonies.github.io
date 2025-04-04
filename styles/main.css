@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    --info-light: #ffffff;
+    --info-medium: #CCC;
+    --my-green: #B4DE00;
+    --background: #121212;
+}
+
+body {
+    background-color: var(--background);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 20px 80px;
+    max-width: 1728px;
+    margin: 0 auto;
+}
+
+
