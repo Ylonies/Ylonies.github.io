@@ -1,6 +1,7 @@
 
 .application-form {
-  min-width: 450px;
+  min-width: 200px;
+  width: 80%;
   margin: 0 auto;
   padding: 30px;
   border-radius: 12px;
@@ -88,8 +89,6 @@
 
 .submit-btn:hover {
   color: var(--my-green); /* Зеленый текст */
-}
-
-.submit-btn:hover {
   background: transparent;
+
 }
