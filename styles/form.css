@@ -1,10 +1,11 @@
 
 .application-form {
-  min-width: 200px;
+  min-width: 220px;
   width: 80%;
   margin: 0 auto;
   padding: 30px;
-  border-radius: 12px;
+  border: 2px solid white;
+  border-radius: 20 px;
 }
 
 .application-form h1{
@@ -26,6 +27,7 @@
   background-color: transparent;
   border: none; /* Убираем стандартную рамку */
   border-bottom: 2px solid var(--info-light);
+  color: var(--info-light);
 }
 
 .form-input::placeholder {
@@ -79,7 +81,7 @@
   padding: 14px;
   background: transparent; /* Прозрачный фон */
   color: var(--info-light); /* Белый текст */
-    border: 2px solid #444; /* Белая рамка */
+  border: 2px solid #444; /* Белая рамка */
   border-radius: 20px;
   font-size: 16px;
   font-weight: 600;
