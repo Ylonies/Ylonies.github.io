@@ -20,6 +20,7 @@ body {
     padding: 20px 20px 80px;
     max-width: 1728px;
     margin: 0 auto;
+    border: 2px solid var(--info-medium);
 }
 
 

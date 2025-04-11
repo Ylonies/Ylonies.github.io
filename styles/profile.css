@@ -6,13 +6,14 @@
     display: flex;
     flex-direction: column;
     gap: 28px;
+
 }
 
 .profile-info {
     display: flex;
     gap: 20px;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 /* Фиксированный размер аватарки */
