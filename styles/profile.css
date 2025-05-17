@@ -2,7 +2,6 @@
 .profile-section {
     width: 100%;
     border-radius: 24px;
-    padding: 32px;
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -34,19 +33,14 @@
 }
 
 .profile-titles{
-
+text-align: left;
 }
-.profile-titles h1 {
-    font-size: clamp(24px, 2.5vw, 36px)
+.profile-section h1 {
+padding: 0px;
     font-weight: 700;
     line-height: 1.2;
 }
 
-.profile-section h2 {
-    font-size: clamp(16px, 1.8vw, 24px);
-    font-weight: 400;
-    color: var(--info-medium);
-}
 
 .profile-stats {
     display: flex;
@@ -63,13 +57,6 @@
     text-align: center;
 }
 
-.stat-value {
-    font-size: clamp(28px, 2.5vw, 36px);
-    font-weight: 700;
-    color: var(--my-green);
-    line-height: 1;
-    margin-bottom: 8px;
-}
 
 
 /* my github */

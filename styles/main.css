@@ -1,5 +1,6 @@
 :root {
   --header-height: 80px;
+  --footer-height: 80px;
   --info-light: #ffffff;
   --info-medium: #CCC;
   --my-green: #B4DE00;
@@ -21,11 +22,43 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    padding: var(--header-height) 20px 80px;
     max-width: 1728px;
     margin: 0 auto;
 }
 
+main {
+    padding-top: var(--header-height); /* Основной отступ для хедера */
+    padding-bottom: var(--footer-height);
+}
 
+h1 {
+    padding: 20px;
+    text-align: center;
+    font-size: clamp(25px, 2.5vw, 40px);
+    color: var(--info-light);
+}
+
+h2{
+    color: var(--info-medium);
+    font-weight: 400;
+    font-size: clamp(10px, 2.5vw, 25px);
+
+}
+
+.stat-value {
+    font-size: clamp(35px, 2.5vw, 45px);
+    font-weight: 700;
+    color: var(--my-green);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+#profile,
+#form,
+#image-gallery,
+#countdown-container {
+  scroll-margin-top: calc(var(--header-height));
+  padding: 100px 0;
+}
 
 

@@ -1,6 +1,6 @@
 .site-footer {
- 
   width: 100%;
+  height: var(--footer-height);
   padding: 20px 0; /* Уменьшенная высота */
   position: fixed; /* Фиксированное позиционирование */
   bottom: 0; /* Прикрепляем к низу */

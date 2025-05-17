@@ -15,19 +15,17 @@
   margin-top: 15px;
 }
 
+
 .time-block {
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .time-block span:first-child {
-  font-size: 2.5rem;
+font-size: clamp(35px, 2.5vw, 80px);
   font-weight: bold;
   color: var(--my-green);
 }
 
-.time-label {
-  font-size: 1rem;
-  color: var(--info-medium);
-}

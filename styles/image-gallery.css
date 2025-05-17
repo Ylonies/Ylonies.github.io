@@ -1,6 +1,9 @@
 .image-gallery {
- width: 80%;
- margin-left: 10%;
+    min-width: 300px;
+    max-width: 1000px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
 }
 
 .gallery-row {
