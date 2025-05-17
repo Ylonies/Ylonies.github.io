@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="styles/form.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/content_section.css">
+    <link rel="stylesheet" href="styles/popup.css">
+    <link rel="stylesheet" href="styles/countdown_container.css">
 </head>
 
-<body>
-<header>
+
+<header class="main-header">
     <div class="header-container">
         <!-- Навигация -->
         <nav class="header-nav">
@@ -32,7 +34,7 @@
 
     </div>
 </header>
-
+<body>
 <section id="profile" class="profile-section">
     <div class="profile-info">
         <div class="avatar-placeholder">
@@ -72,56 +74,115 @@
     <div class="image-gallery">
         <div class="gallery-row">
             <div class="image-container">
-                <img src="images/img1.jpg" alt="Описание 1" class="gallery-image">
+                <img src="images/img1.jpg" alt="life goes oh no" class="gallery-image">
             </div>
             <div class="image-container">
-                <img src="images/img2.jpg" alt="Описание 2" class="gallery-image">
+                <img src="images/img2.jpg" alt="me working" class="gallery-image">
             </div>
         </div>
         <div class="gallery-row">
             <div class="image-container">
-                <img src="images/img3.jpg" alt="Описание 3" class="gallery-image">
+                <img src="images/img3.jpg" alt="me relaxing" class="gallery-image">
             </div>
             <div class="image-container">
-                <img src="images/img5.jpg" alt="Описание 4" class="gallery-image">
+                <img src="images/img5.jpg" alt="my future" class="gallery-image">
             </div>
         </div>
     </div>
+
 </section>
 
 <div id="application-form" class="application-form">
     <h1>Связаться со мной</h1>
-    <div class="form-group">
-        <input type="text" id="name" class="form-input" placeholder="Имя">
-    </div>
+    <form id="contact-form">
+        <div class="form-group">
+            <input type="text" id="name" class="form-input" placeholder="Имя">
+            <div class="error-message" id="name-error"></div>
+        </div>
 
-    <div class="form-group">
-        <input type="text" id="surname" class="form-input" placeholder="Фамилия">
-    </div>
+        <div class="form-group">
+            <input type="text" id="surname" class="form-input" placeholder="Фамилия">
+            <div class="error-message" id="surname-error"></div>
+        </div>
 
-    <div class="form-group">
-        <input type="text" id="about" class="form-input" placeholder="О себе">
-    </div>
+        <div class="form-group">
+            <input type="text" id="mail" class="form-input" placeholder="mail@example.com">
+            <div class="error-message" id="email-error"></div>
+        </div>
 
-    <div class="form-group radio-group">
-        <p class="radio-label">Пол:</p>
-        <div class="radio-options">
-            <label class="radio-option">
-                <input type="radio" name="gender" value="male">
-                <span class="radio-custom"></span>
-                Муж
-            </label>
-            <label class="radio-option">
-                <input type="radio" name="gender" value="female">
-                <span class="radio-custom"></span>
-                Жен
-            </label>
+        <div class="form-group">
+            <input type="text" id="question" class="form-input" placeholder="Свой вопрос">
+            <div class="error-message" id="question-error"></div>
+        </div>
+
+        <div class="form-group radio-group">
+            <p class="radio-label">Пол:</p>
+            <div class="radio-options">
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="male">
+                    <span class="radio-custom"></span>
+                    Муж
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="female">
+                    <span class="radio-custom"></span>
+                    Жен
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+            <span class="btn-text">Отправить</span>
+            <span class="loading-spinner"></span>
+            <span class="success-icon">✓</span>
+        </button>
+    </form>
+</div>
+<div class="popup-overlay" id="gallery-popup">
+    <div class="popup-content">
+        <button class="close-btn">&times;</button>
+        <img src="" alt="" class="popup-image">
+        <div class="image-description"></div>
+        <div class="popup-nav">
+            <button class="nav-arrow gallery-prev-arrow hidden">&larr;</button>
+            <button class="nav-arrow gallery-next-arrow">&rarr;</button>
         </div>
     </div>
-
-    <button type="submit" class="submit-btn">Отправить</button>
 </div>
 
+<div class="popup-overlay" id="delayed-popup">
+    <div class="popup-content">
+        <button class="close-btn">&times;</button>
+        <img src="images/alert.JPG" alt="" class="popup-image">
+    </div>
+</div>
+
+<div class="countdown-container">
+    <h2>До письмака по матану осталось:</h2>
+    <div class="countdown-timer">
+        <div class="time-block">
+            <span id="days">00</span>
+            <span class="time-label">дней</span>
+        </div>
+        <div class="time-block">
+            <span id="hours">00</span>
+            <span class="time-label">часов</span>
+        </div>
+        <div class="time-block">
+            <span id="minutes">00</span>
+            <span class="time-label">минут</span>
+        </div>
+        <div class="time-block">
+            <span id="seconds">00</span>
+            <span class="time-label">секунд</span>
+        </div>
+    </div>
+</div>
+
+<script src="js/gallery.js"></script>
+<script src="js/form.js" defer></script>
+<script src="js/delayed_popup.js"></script>
+<script src="js/countdown_container.js"></script>
 </body>
 <footer id="contacts" class="site-footer">
     <div class="footer-content">

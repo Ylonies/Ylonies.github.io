@@ -1,96 +1,167 @@
 
 .application-form {
-  min-width: 400px;
-  width: 80%;
-  margin: 0 auto;
-  padding: 30px;
-  border: 2px solid white;
-  border-radius: 10%;
+    min-width: 300px;
+    max-width: 1000px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid white;
+    border-radius: 10%;
 }
 
-.application-form h1{
-  padding: 20px;
-  text-align: center;
-  font-size: 1.5rem; /* Увеличиваем размер для лучшей читаемости */
-  color: var(--info-light);
-  text-align: center;
+.application-form h1 {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--info-light);
 }
 
 .form-group {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 .form-input {
-  width: 100%;
-  padding: 5px 0;
-  font-size: 16px;
-  background-color: transparent;
-  border: none; /* Убираем стандартную рамку */
-  border-bottom: 2px solid var(--info-light);
-  color: var(--info-light);
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--info-light);
+    color: var(--info-light);
 }
 
 .form-input::placeholder {
-  color: var(--info-medium);
+    color: var(--info-medium);
 }
 
 .radio-group {
-  margin-top: 25px;
+    margin-top: 25px;
 }
 
 .radio-label {
-  margin-bottom: 12px;
-  font-weight: 500;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: var(--info-light);
 }
 
 .radio-options {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .radio-option {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--info-light);
 }
 
 .radio-option input {
-  position: absolute;
-  opacity: 0;
+    position: absolute;
+    opacity: 0;
 }
 
 .radio-custom {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--info-light); /* Белая граница */
-  border-radius: 50%;
-  margin-right: 8px;
-  position: relative;
-  transition: all 0.3s ease; /* Плавное изменение */
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--info-light);
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .radio-option input:checked + .radio-custom {
-  background: var(--my-green); /* Полностью зеленый фон */
-  border-color: var(--my-green); /* Зеленая граница */
+    background: var(--my-green);
+    border-color: var(--my-green);
 }
 
-
 .submit-btn {
-  width: 100%;
-  padding: 14px;
-  background: transparent; /* Прозрачный фон */
-  color: var(--info-light); /* Белый текст */
-  border: 2px solid #444; /* Белая рамка */
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease; /* Анимация всех свойств */
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: var(--info-light);
+    border: 2px solid var(--info-light);
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .submit-btn:hover {
-  color: var(--my-green); /* Зеленый текст */
-  background: transparent;
+    color: var(--my-green);
+    border-color: var(--my-green);
+}
 
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.submit-btn.sending {
+    color: transparent;
+    border-color: var(--info-light);
+}
+
+.submit-btn.success {
+    color: transparent;
+    border-color: var(--my-green);
+}
+
+.btn-text, .loading-spinner, .success-icon {
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--info-light);
+    animation: spin 1s ease-in-out infinite;
+    opacity: 0;
+}
+
+.success-icon {
+    opacity: 0;
+    color: var(--my-green);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.submit-btn.sending .btn-text {
+    transform: translate(-50%, 200%);
+    opacity: 0;
+}
+
+.submit-btn.sending .loading-spinner {
+    opacity: 1;
+}
+
+.submit-btn.success .loading-spinner {
+    opacity: 0;
+}
+
+.submit-btn.success .success-icon {
+    opacity: 1;
+}
+
+.error-message {
+    color: pink;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }

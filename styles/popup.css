@@ -1,0 +1,87 @@
+/* Затемненный фон попапа, который покрывает весь экран */
+.popup-overlay {
+  position: fixed; /* Фиксированное позиционирование */
+  top: 0;          /* Прижато к верху */
+  left: 0;         /* Прижато к левому краю */
+  right: 0;        /* Прижато к правому краю */
+  bottom: 0;       /* Прижато к низу */
+  background: rgba(0,0,0,0.9); /* Чёрный с прозрачностью 90% */
+  display: flex;    /* Используем flex для центрирования */
+  justify-content: center; /* Горизонтальное центрирование */
+  align-items: center;     /* Вертикальное центрирование */
+  z-index: 1000;   /* Поверх всех элементов */
+  visibility: hidden; /* Скрыт по умолчанию */
+  transition: 0.1s; /* Плавные анимации */
+}
+
+
+.popup-overlay.active {
+  visibility: visible;
+}
+
+/* Контейнер для содержимого попапа */
+.popup-content {
+  position: relative;
+  max-width: 90%;     /* Максимальная ширина 90% экрана */
+  max-height: 90%;    /* Максимальная высота 90% экрана */
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+
+.popup-overlay.active .popup-content {
+  transform: scale(1);
+}
+/* Стили для увеличенного изображения */
+.popup-image {
+  max-width: 100%;    /* Не шире своего контейнера */
+  max-height: 80vh;   /* Максимальная высота 80% высоты экрана */
+  margin: 0 auto;     /* Автоматические отступы по бокам */
+  border-radius: 5%;
+}
+
+/* Контейнер для стрелок навигации */
+.popup-nav {
+  position: absolute; /* Абсолютное позиционирование */
+  top: 50%;          /* Посередине по вертикали */
+  width: 100%;       /* На всю ширину контейнера */
+  display: flex;      /* Flex-контейнер */
+  justify-content: space-between; /* Стрелки по краям */
+  pointer-events: none; /* Чтобы не перекрывали клики */
+}
+
+/* Стили для стрелок */
+.nav-arrow {
+  pointer-events: all; /* Возвращаем кликабельность */
+  background: rgba(255,255,255,0.5); /* Полупрозрачный белый */
+  border: none;       /* Без рамки */
+  width: 50px;        /* Ширина 50px */
+  height: 50px;       /* Высота 50px */
+  border-radius: 50%; /* Круглая форма */
+  display: flex;      /* Для центрирования иконки */
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center;     /* Центрирование по вертикали */
+}
+
+/* Скрытое состояние стрелки */
+.nav-arrow.hidden {
+  visibility: hidden; /* Скрываем, но сохраняем место */
+}
+
+/* Кнопка закрытия */
+.close-btn {
+  position: absolute; /* Абсолютное позиционирование */
+  top: -40px;        /* На 40px выше контейнера */
+  right: 0;          /* Прижата к правому краю */
+  background: none;  /* Прозрачный фон */
+  border: none;      /* Без рамки */
+  color: white;      /* Белый цвет */
+  font-size: 30px;   /* Размер шрифта */
+}
+
+/* Описание изображения */
+.image-description {
+  color: white;      /* Белый текст */
+  text-align: center; /* Выравнивание по центру */
+  margin-top: 15px;  /* Отступ сверху */
+  font-size: 18px;   /* Размер шрифта */
+}
