@@ -48,7 +48,7 @@ h2{
 .stat-value {
     font-size: clamp(35px, 2.5vw, 45px);
     font-weight: 700;
-    color: var(--my-green);
+    color: red;
     line-height: 1;
     margin-bottom: 8px;
 }
