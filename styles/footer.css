@@ -19,7 +19,6 @@
   align-items: center;
 }
 
-/* Стили блока контактов */
 .footer-contact {
   flex-grow: 1;
 }
@@ -38,9 +37,8 @@
   opacity: 1;
 }
 
-/* Стили блока соцсетей */
 .footer-social {
-  margin-left: auto; /* Прижимаем к правому краю */
+  margin-left: auto;
 }
 
 .social-icons {
@@ -49,7 +47,7 @@
 }
 
 .social-icon {
-  width: 28px; /* Уменьшенный размер */
+  width: 28px;
   height: 28px;
   transition: transform 0.3s, opacity 0.3s;
   opacity: 0.8;

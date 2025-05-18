@@ -19,7 +19,6 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Успешная отправка
                         submitBtn.classList.remove('sending');
                         submitBtn.classList.add('success');
 
@@ -44,7 +43,6 @@
 function validateForm() {
     let isValid = true;
 
-    // Валидация имени
     const name = document.getElementById('name').value;
     if (!name) {
         showError('name-error', 'поле обязательно для заполнения');
@@ -54,7 +52,6 @@ function validateForm() {
         isValid = false;
     }
 
-    // Валидация фамилии
     const surname = document.getElementById('surname').value;
     if (!surname) {
         showError('surname-error', 'поле обязательно для заполнения');
@@ -64,7 +61,6 @@ function validateForm() {
         isValid = false;
     }
 
-    // Валидация email
     const email = document.getElementById('mail').value;
     if (!email) {
         showError('email-error', 'поле обязательно для заполнения');
@@ -74,7 +70,6 @@ function validateForm() {
         isValid = false;
     }
 
-    // Валидация вопроса
     const question = document.getElementById('question').value;
     if (!question) {
         showError('question-error', 'поле обязательно для заполнения');

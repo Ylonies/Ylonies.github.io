@@ -3,7 +3,6 @@
     max-width: 1000px;
     width: 80%;
     margin: 0 auto;
-    padding: 30px;
 }
 
 .gallery-row {
@@ -15,7 +14,7 @@
 
 .image-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   aspect-ratio: 1/1;
   overflow: hidden;
   border-radius: 12px;
@@ -27,7 +26,6 @@
   object-fit: cover;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
   .gallery-row {
     flex-direction: column;
