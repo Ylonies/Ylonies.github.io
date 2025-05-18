@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === delayedPopup){
          closeDelayedPopup();
         }
-    }
     });
 
     document.addEventListener('keydown', function(e) {
