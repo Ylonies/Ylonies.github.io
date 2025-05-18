@@ -1,45 +1,43 @@
- document.getElementById('application-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const submitBtn = document.getElementById('submit-btn');
+document.getElementById('application-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const submitBtn = document.getElementById('submit-btn');
 
-        clearErrors();
+    clearErrors();
 
-        const isValid = validateForm();
+    const isValid = validateForm();
 
-        if (isValid) {
-            submitBtn.disabled = true;
-            submitBtn.classList.add('sending');
+    if (isValid) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('sending');
 
-            const formData = new FormData(this);
+        const formData = new FormData(form);
 
-            setTimeout(() => {
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (response.ok) {
-                        submitBtn.classList.remove('sending');
-                        submitBtn.classList.add('success');
+        setTimeout(() => {
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                fakeResponse(form, submitBtn);
+            })
+            .catch(error => {
+                fakeResponse(form, submitBtn);
+            });
+        }, 2000);
+    }
+});
 
-                        setTimeout(() => {
-                            this.reset();
-                            submitBtn.classList.remove('success');
-                            submitBtn.disabled = false;
-                        }, 2000);
-                    } else {
-                        throw new Error('Ошибка отправки формы');
-                    }
-                })
-                .catch(error => {
-                    submitBtn.classList.remove('sending');
-                    submitBtn.disabled = false;
-                    alert('Произошла ошибка при отправке: ' + error.message);
-                });
-            }, 2000);
-        }
-    });
+function fakeResponse(form, submitBtn) {
+    submitBtn.classList.remove('sending');
+    submitBtn.classList.add('success');
 
+    setTimeout(() => {
+        form.reset();
+        submitBtn.classList.remove('success');
+        submitBtn.disabled = false;
+    }, 2000);
+}
 function validateForm() {
     let isValid = true;
 
