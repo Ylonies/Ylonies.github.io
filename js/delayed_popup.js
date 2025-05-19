@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    if (localStorage.getItem('popupClosed') === 'true') {
+    const HOUR_IN_MS = 3600000;
+    const popupStorageKey = 'popupClosedTime';
+
+    const popupClosedTime = localStorage.getItem(popupStorageKey);
+    if (popupClosedTime && (Date.now() - Number(popupClosedTime)) < HOUR_IN_MS) {
+        console.log('Попап уже закрывался в последний час — не показываем');
         return;
     }
 
@@ -8,19 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const popupTimer = setTimeout(() => {
         delayedPopup.classList.add('active');
-    }, 30000);
+    }, 3000);
 
     function closeDelayedPopup() {
         clearTimeout(popupTimer);
         delayedPopup.classList.remove('active');
-        localStorage.setItem('popupClosed', 'true');
+        localStorage.setItem(popupStorageKey, Date.now());
     }
 
     delayedCloseBtn.addEventListener('click', closeDelayedPopup);
     delayedPopup.addEventListener('click', function(e) {
-        if (e.target === delayedPopup){
-         closeDelayedPopup();
-        }
+        if (e.target === delayedPopup) closeDelayedPopup();
     });
 
     document.addEventListener('keydown', function(e) {
