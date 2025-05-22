@@ -1,34 +1,33 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const HOUR_IN_MS = 3600000;
-    const popupStorageKey = 'popupClosedTime';
+document.addEventListener('DOMContentLoaded', () => {
+    const HOUR_IN_MS = 300000; //поменяла на время жизни в 5 минут для отладки
+    const popupCookieName = 'popupClosedTime';
 
-    const popupClosedTime = localStorage.getItem(popupStorageKey);
-    if (popupClosedTime && (Date.now() - Number(popupClosedTime)) < HOUR_IN_MS) {
-        console.log('Попап уже закрывался в последний час — не показываем');
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
+        return match ? JSON.parse(decodeURIComponent(match[2])) : null;
+    }
+
+    function setCookie(name, value) {
+        const date = new Date();
+        date.setTime(date.getTime() + HOUR_IN_MS);
+        document.cookie = `${name}=${encodeURIComponent(JSON.stringify(value))}; expires=${date.toUTCString()}; path=/`;
+    }
+
+    const popupData = getCookie(popupCookieName);
+
+    if (popupData?.timestamp && Date.now() - popupData.timestamp < HOUR_IN_MS) {
         return;
     }
 
-    const delayedPopup = document.getElementById('delayed-popup');
-    const delayedCloseBtn = delayedPopup.querySelector('.close-btn');
+    const popup = document.getElementById('delayed-popup');
+    const closePopup = () => {
+        clearTimeout(popup.timer);
+        popup.classList.remove('active');
+        setCookie(popupCookieName, { timestamp: Date.now() });
+    };
 
-    const popupTimer = setTimeout(() => {
-        delayedPopup.classList.add('active');
-    }, 3000);
-
-    function closeDelayedPopup() {
-        clearTimeout(popupTimer);
-        delayedPopup.classList.remove('active');
-        localStorage.setItem(popupStorageKey, Date.now());
-    }
-
-    delayedCloseBtn.addEventListener('click', closeDelayedPopup);
-    delayedPopup.addEventListener('click', function(e) {
-        if (e.target === delayedPopup) closeDelayedPopup();
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && delayedPopup.classList.contains('active')) {
-            closeDelayedPopup();
-        }
-    });
+    popup.timer = setTimeout(() => popup.classList.add('active'), 30000);
+    popup.querySelector('.close-btn').addEventListener('click', closePopup);
+    popup.addEventListener('click', e => e.target === popup && closePopup());
+    document.addEventListener('keydown', e => e.key === 'Escape' && popup.classList.contains('active') && closePopup());
 });
